@@ -15,7 +15,7 @@
 
 ### Development Setup
 
-# Server
+#### Server
 ```sh
 cd server
 npm install
