@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 require('dotenv').config();
 
 const middlewares = require('./middleware/errorHandler');
@@ -9,6 +10,9 @@ const app = express();
 
 // add middlewares
 app.use(morgan('dev'));
+app.use(cors({
+  origin: 'http://localhost:8080',
+}));
 app.use(express.json());
 
 // add routes
