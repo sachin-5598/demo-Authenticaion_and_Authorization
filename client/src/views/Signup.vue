@@ -142,14 +142,14 @@ export default {
           setTimeout(() => {
             this.signingUp = false;
             this.$router.push('/login');
-          }, 2000);
+          }, 3000);
         } else {
           // because we are sending json when an error happens too
           const error = await response.json();
           setTimeout(() => {
             this.signingUp = false;
             this.errorMessage = error.message;
-          }, 2000);
+          }, 3000);
         }
       }
     },

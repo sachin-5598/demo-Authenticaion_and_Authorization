@@ -1,5 +1,6 @@
 const express = require('express');
 
+const middleware = require('./middlewares');
 const requestHandler = require('./requestHandlers');
 
 const router = express.Router();
@@ -10,6 +11,13 @@ router.get('/', (req, res) => {
   });
 });
 
-router.post('/signup', requestHandler.signupHandler);
+router.post('/signup',
+  middleware.validateBody,
+  requestHandler.signupHandler
+);
+router.post('/login',
+  middleware.validateBody,
+  requestHandler.loginHandler
+);
 
 module.exports = router;
