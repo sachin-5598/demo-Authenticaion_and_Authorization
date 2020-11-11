@@ -7,10 +7,20 @@
     <p>It uses Node, Express, MongoDB, Vuejs</p>
     <p class="lead">
       <router-link
+        v-if="!isLoggedIn"
         class="btn btn-warning btn-lg"
         :to="{ name: 'Signup' }"
         role="button">SignUp</router-link>
-      <a class="btn btn-warning btn-lg" href="#" role="button">LogIn</a>
+      <router-link
+        v-if="!isLoggedIn"
+        class="btn btn-primary btn-lg"
+        :to="{ name: 'Login' }"
+        role="button">LogIn</router-link>
+      <router-link
+        v-if="isLoggedIn"
+        class="btn btn-primary btn-lg"
+        :to="{ name: 'Dashboard' }"
+        role="button">My Dashboard</router-link>
     </p>
   </div>
 </div>
@@ -19,6 +29,14 @@
 <script>
 export default {
   name: 'Home',
+  data: () => ({
+    isLoggedIn: false,
+  }),
+  mounted() {
+    if (localStorage.token) {
+      this.isLoggedIn = true;
+    }
+  },
 };
 </script>
 

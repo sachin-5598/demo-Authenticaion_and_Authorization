@@ -1,65 +1,65 @@
 <template>
-<section>
-  <h1>Signup</h1>
-  <div v-if="signingUp" class="text-center">
-    <img src="../assets/Pulse-1s-200px.svg" alt="loader">
-  </div>
-  <div v-if="errorMessage" class="alert alert-danger">
-    <strong>Oh snap!</strong> {{ errorMessage }}
-  </div>
-  <form v-if="!signingUp" @submit.prevent="signup">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        v-model="user.username"
-        type="text"
-        class="form-control"
-        id="username"
-        aria-describedby="usernameHelp"
-        placeholder="Enter username"
-        required>
-      <small
-        id="usernameHelp"
-        class="form-text text-muted">Username must longer than 2 characters and shorter than 30.
-        Username can only contain alpha numeric character and '_'.
-      </small>
+  <section>
+    <h1>Signup</h1>
+    <div v-if="signingUp" class="text-center">
+      <img src="../assets/Pulse-1s-200px.svg" alt="loader">
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="password">Password</label>
+    <div v-if="errorMessage" class="alert alert-danger">
+      <strong>Oh snap!</strong> {{ errorMessage }}
+    </div>
+    <form v-if="!signingUp" @submit.prevent="signup">
+      <div class="form-group">
+        <label for="username">Username</label>
         <input
-          v-model="user.password"
-          type="password"
+          v-model="user.username"
+          type="text"
           class="form-control"
-          id="password"
-          aria-describedby="passwordHelp"
-          placeholder="Enter password"
+          id="username"
+          aria-describedby="usernameHelp"
+          placeholder="Enter username"
           required>
         <small
-          id="passwordHelp"
-          class="form-text text-muted">Password must longer than 8 characters.
-          Username can only contain alpha numeric character and '@,#,$,%,^,&,*'.
+          id="usernameHelp"
+          class="form-text text-muted">Username must longer than 2 characters and shorter than 30.
+          Username can only contain alpha numeric character and '_'.
         </small>
       </div>
-      <div class="form-group col-md-6">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          v-model="user.confirmPassword"
-          type="password"
-          class="form-control"
-          id="confirmPassword"
-          aria-describedby="confirmPasswordHelp"
-          placeholder="Confirm Password"
-          required>
-        <small
-          id="confirmPasswordHelp"
-          class="form-text text-muted">Please confirm your password.
-        </small>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input
+            v-model="user.password"
+            type="password"
+            class="form-control"
+            id="password"
+            aria-describedby="passwordHelp"
+            placeholder="Enter password"
+            required>
+          <small
+            id="passwordHelp"
+            class="form-text text-muted">Password must longer than 8 characters.
+            Username can only contain alpha numeric character and '@,#,$,%,^,&,*'.
+          </small>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            v-model="user.confirmPassword"
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            aria-describedby="confirmPasswordHelp"
+            placeholder="Confirm Password"
+            required>
+          <small
+            id="confirmPasswordHelp"
+            class="form-text text-muted">Please confirm your password.
+          </small>
+        </div>
       </div>
-    </div>
-    <button type="submit" class="btn btn-outline-warning">Submit</button>
-  </form>
-</section>
+      <button type="submit" class="btn btn-outline-warning">Signup</button>
+    </form>
+  </section>
 </template>
 
 <script>

@@ -5,7 +5,7 @@ const { users } = require('./shared');
 
 function respond422(res, next) {
   res.status(422);
-  const error = new Error('Unable to LogIn!!!@@..');
+  const error = new Error('Unable to LogIn.');
   next(error);
 }
 
@@ -21,7 +21,7 @@ async function loginHandler(req, res, next) {
       jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' }, (err, token) => {
         if (err) {
           // a 500 error if token not generated
-          next(new Error('Unable to LogIn!!!'));
+          next(new Error('Something went wrong...Try again!!!'));
         } else {
           // respond with the generated token
           res.json({ token });
