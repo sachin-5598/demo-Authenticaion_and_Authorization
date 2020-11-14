@@ -96,7 +96,6 @@ export default {
         });
         if (response.ok) {
           const result = await response.json();
-          console.log(result);
           localStorage.token = result.token;
           setTimeout(() => {
             this.loggingUp = false;

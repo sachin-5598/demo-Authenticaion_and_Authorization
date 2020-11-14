@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const middlewares = require('./middleware/errorHandler');
+const authMiddlewares = require('./auth/middlewares');
+
 const auth = require('./auth');
 
 const app = express();
@@ -14,6 +16,7 @@ app.use(cors({
   origin: 'http://localhost:8080',
 }));
 app.use(express.json());
+app.use(authMiddlewares.createTokenSetUser);
 
 // add routes
 app.get('/', (req, res) => {

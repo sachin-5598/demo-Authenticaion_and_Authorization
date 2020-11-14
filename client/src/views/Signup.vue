@@ -137,11 +137,11 @@ export default {
         });
         if (response.ok) {
           // everything went ok
-          const user = await response.json();
-          console.log(user);
+          const result = await response.json();
+          localStorage.token = result.token;
           setTimeout(() => {
             this.signingUp = false;
-            this.$router.push('/login');
+            this.$router.push('/dashboard');
           }, 3000);
         } else {
           // because we are sending json when an error happens too

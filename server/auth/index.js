@@ -7,7 +7,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to auth'
+    message: 'Welcome to auth',
+    user: req.user,
   });
 });
 
