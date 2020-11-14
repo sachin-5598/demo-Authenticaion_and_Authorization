@@ -7,6 +7,7 @@ const middlewares = require('./middleware/errorHandler');
 const authMiddlewares = require('./auth/middlewares');
 
 const auth = require('./auth');
+const apiv1 = require('./api');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', auth);
+app.use('/api/v1', authMiddlewares.isLoggedIn, apiv1);
 
 // error handling
 app.use(middlewares.notFound);

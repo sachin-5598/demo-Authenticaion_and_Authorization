@@ -5,7 +5,8 @@
     <p class="lead">Implementing Auth from scratch for fun</p>
     <hr class="my-4">
     <p>It uses Node, Express, MongoDB, Vuejs</p>
-    <img v-if="initialLoading" src="../assets/Gear-0.8s-200px.svg" alt="retrieving">
+    <br>
+    <img v-if="initialLoading" src="../assets/Ball-1s-200px.svg" alt="retrieving">
     <p v-if="!initialLoading" class="lead">
       <router-link
         v-if="!isLoggedIn"
@@ -59,7 +60,7 @@ export default {
     }
     setTimeout(() => {
       this.initialLoading = false;
-    }, 1000);
+    }, 2000);
   },
 };
 </script>
